@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Um Pedido de Desculpas Especial 💖</title>
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&family=Outfit:wght@400;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <!-- Estilos CSS -->
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/minigame.css">
+</head>
+<body>
+
+  <!-- Canvas de Animação de Fundo -->
+  <canvas id="bgCanvas"></canvas>
+
+  <!-- Botão Flutuante de Controle de Áudio -->
+  <button id="audioBtn" class="audio-control-btn" title="Ativar Áudio">🔇</button>
+  <audio id="bgAudio" preload="auto"></audio>
+
+  <!-- Container Principal -->
+  <div class="app-container">
+
+    <!-- TELA INICIAL (HERO COVER) -->
+    <header class="hero-section" id="heroSection">
+      <div class="glass-card hero-box">
+        <div class="hero-emoji">😭</div>
+        <h1 class="hero-title">Ei... preciso te pedir desculpas 😭</h1>
+        <p class="hero-subtitle">Eu sei que andei sumido e talvez tenha parecido que esqueci de você, mas não foi isso.</p>
+        <button id="enterBtn" class="btn-primary">
+          <span>Entrar 👀</span>
+          <i class="fa-solid fa-arrow-down"></i>
+        </button>
+      </div>
+    </header>
+
+    <!-- SEÇÃO 1 — O PEDIDO DE DESCULPAS -->
+    <section class="section" id="section-apology">
+      <div class="glass-card apology-card">
+        <div style="text-align: center;">
+          <span class="badge">💌 Mensagem Sincera</span>
+          <h2 class="section-title">De Coração... Me Desculpa</h2>
+        </div>
+        
+        <div class="apology-text" style="margin-top: 2rem;">
+          <p class="apology-paragraph">
+            Eu queria começar dizendo uma coisa que eu deveria ter dito antes: me desculpa por ter sumido e ficado tão ausente. Mesmo quando eu não aparecia, eu sempre senti muita falta de você, das nossas conversas, de jogar junto, de te irritar só pra te perturbar um pouquinho 😂 e, claro, de ver suas fotos maravilhosas.
+          </p>
+          <p class="apology-paragraph">
+            Às vezes acabei me afastando mais do que deveria, mas nunca foi por falta de consideração ou porque deixei de valorizar você. Pelo contrário, você é uma pessoa que eu gosto muito de ter por perto e que fez falta em vários momentos. Eu realmente sinto falta das nossas resenhas, das partidas e até das nossas implicâncias kkkkk.
+          </p>
+          <p class="apology-paragraph">
+            Então, de verdade, me desculpa por ter sumido. Espero que a gente possa voltar a conversar, jogar e recuperar um pouco desse tempo perdido. <span class="apology-heart">❤️</span>
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- SEÇÃO 2 — FOTOS -->
+    <section class="section" id="section-photos">
+      <div class="section-header">
+        <span class="badge">🐱 Se a Gente Fosse Gatinhos</span>
+        <h2 class="section-title">Se a Gente Fosse Gatinhos Fofinhos 🐱💖</h2>
+        <p class="section-subtitle">Porque até como gatinhos a gente seria a melhor dupla! ✨</p>
+      </div>
+
+      <!-- Grid de Fotos gerado via JS -->
+      <div id="galleryGrid" class="gallery-grid"></div>
+
+      <div style="text-align: center;">
+        <div class="gallery-footer-msg">
+          E sim... você precisava ver a gente assim porque essa é a melhor dupla de todas 😂❤️
+        </div>
+      </div>
+    </section>
+
+    <!-- SEÇÃO 3 — MENSAGEM ESPECIAL -->
+    <section class="section" id="section-special">
+      <div class="glass-card special-card">
+        <div class="special-quote-icon">
+          <i class="fa-solid fa-sparkles"></i>
+        </div>
+        <h2 class="special-main-title">Você é perfeita do seu jeitinho.</h2>
+        <p class="special-subtext">
+          Perfeita não porque não tenha defeitos, mas porque tem um jeito único de ser, de fazer as pessoas rirem e de tornar os momentos mais legais.
+        </p>
+      </div>
+    </section>
+
+    <!-- SEÇÃO 4 — VÍDEO -->
+    <section class="section" id="section-video">
+      <div class="section-header">
+        <span class="badge">🎥 Especialmente pra Você</span>
+        <h2 class="section-title">Agora vem a parte que eu preparei especialmente pra você 🎥</h2>
+      </div>
+
+      <div class="video-container">
+        <div class="video-wrapper">
+          <video id="mainVideo" controls preload="auto" playsinline>
+            <source src="assets/video/El_Ramon_video_no_watermark.mp4" type="video/mp4">
+            <source src="assets/video/video.mp4" type="video/mp4">
+            Seu navegador não suporta a exibição de vídeos.
+          </video>
+        </div>
+        <div class="video-selector" id="videoSelector" style="display: flex; justify-content: center; gap: 12px; margin-top: 15px;">
+          <button class="video-select-btn active" data-src="assets/video/El_Ramon_video_no_watermark.mp4" style="background: rgba(255, 107, 139, 0.25); border: 1px solid var(--primary); color: #fff; padding: 8px 20px; border-radius: 999px; cursor: pointer; font-weight: 600; font-size: 0.95rem;">Vídeo 1 🎥</button>
+          <button class="video-select-btn" data-src="assets/video/lunarbi_video_no_watermark.mp4" style="background: rgba(255, 255, 255, 0.08); border: 1px solid rgba(255, 255, 255, 0.2); color: #cbd5e1; padding: 8px 20px; border-radius: 999px; cursor: pointer; font-weight: 600; font-size: 0.95rem;">Vídeo 2 🎥</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- SEÇÃO 5 — PARTE DIVERTIDA -->
+    <section class="section" id="section-funny">
+      <div class="glass-card funny-card">
+        <span class="badge">👀 O Veredito Final</span>
+        <h2 class="section-title">Tá... mas será que o pedido de desculpas foi aceito? 👀</h2>
+
+        <div class="funny-buttons-wrapper">
+          <button id="acceptBtn" class="btn-accept">
+            <span>ACEITAR DESCULPAS ✅</span>
+          </button>
+          
+          <button id="declineBtn" class="btn-decline">
+            <span>AINDA NÃO 😤</span>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- SEÇÃO 6 — MINI GAME: QUEM É MAIS BONITA? 👀 -->
+    <section class="section" id="section-minigame">
+      <div class="glass-card" id="minigame-section">
+        
+        <header class="mg-header" id="mg-head">
+          <span class="badge">🎮 Desafio Especial</span>
+          <p class="mg-pre">Agora vamos resolver uma questão muito importante...</p>
+          <h2 class="mg-title">Quem é mais bonita? <span>👀</span></h2>
+          <button class="btn-primary" id="mg-start" type="button" style="margin-top: 1.5rem;">
+            <span>Começar o Desafio 👀</span>
+            <i class="fa-solid fa-gamepad"></i>
+          </button>
+        </header>
+
+        <div class="mg-round" id="mg-round" aria-hidden="true"></div>
+
+        <div id="mg-game">
+          <div class="mg-arena" id="mg-arena"></div>
+          <div class="mg-msg" id="mg-msg" aria-live="polite"></div>
+        </div>
+
+        <div class="mg-final" id="mg-final" hidden>
+          <div class="mg-trophy">🏆 VENCEDORA ABSOLUTA</div>
+          <div class="mg-final-photo">
+            <img id="mg-finalImg" alt="Vencedora absoluta">
+          </div>
+          <h3>Desculpa, mas é impossível competir com ela. 😂</h3>
+          <p>Pode colocar quem quiser aqui... o resultado já estava definido desde o começo.</p>
+          <button class="mg-again" id="mg-again" type="button">DESAFIAR OUTRA 👀</button>
+        </div>
+
+        <p class="mg-small">Brincadeira: o resultado é 100% combinado. Todas as participantes são lindas ❤️</p>
+
+      </div>
+    </section>
+
+    <!-- SEÇÃO FINAL — VAMOS JOGAR (WHATSAPP) -->
+    <section class="section" id="section-final">
+      <div class="glass-card whatsapp-card">
+        <span class="badge">🎮 Próxima Partida</span>
+        <h2 class="section-title">Agora falta só uma coisa...</h2>
+        <p class="section-subtitle" style="font-size: 1.25rem; font-weight: 600; color: #ffffff; margin-top: 0.5rem;">
+          Quando você estiver livre, me chama pra gente jogar 🎮
+        </p>
+
+        <a id="whatsappBtn" class="btn-whatsapp">
+          <i class="fa-brands fa-whatsapp"></i>
+          <span>ME CHAMAR NO WHATSAPP 💬</span>
+        </a>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="site-footer">
+      <p>Feito especialmente com carinho e amizade ❤️🎮</p>
+    </footer>
+
+  </div>
+
+  <!-- Lightbox Modal de Fotos -->
+  <div id="lightboxModal" class="lightbox-modal">
+    <div class="lightbox-content">
+      <button id="lightboxClose" class="lightbox-close">&times;</button>
+      <img id="lightboxImg" class="lightbox-img" src="" alt="Ampliada">
+      <div id="lightboxCaption" class="lightbox-caption"></div>
+    </div>
+  </div>
+
+  <!-- Toast para Respostas Engraçadas -->
+  <div id="funnyToast" class="funny-toast"></div>
+
+  <!-- Scripts -->
+  <script src="js/config.js"></script>
+  <script src="js/script.js"></script>
+  <script src="js/minigame.js"></script>
+
+</body>
+</html>
